@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import Header from './components/Header';
 import pokeFetch from './pokeFetch';
 import PokemonCard from './components/PokemonCard';
+import Button from './components/Button';
+import Input from './components/Input';
 import './App.css';
 
 export class App extends Component {
@@ -31,19 +33,31 @@ export class App extends Component {
 
   logValue = async (event) => {
     event.preventDefault();
-    const pokemon = await pokeFetch(this.state.name);
-    const {id, name, weight, sprites, species, types } = pokemon;
-    const { front_default } = sprites;
-    this.setState({id, name, weight, front_default, species, types})
+    try {
+      const pokemon = await pokeFetch(this.state.name);
+      const {id, name, weight, sprites, species, types } = pokemon;
+      const { front_default } = sprites;
+      this.setState({id, name, weight, front_default, species, types})
+    } catch (e) {
+      console.log(e);
+      return;
+    }
   }
   
   render() {
     return (
       <div className="App">
         <Header />
-        <form className="search-form">
-          <input className="search-input" onChange={this.handleInput} /> 
-          <button className="search-btn" onClick={this.logValue}>Search</button> 
+        <form className="search-form" onSubmit={this.logValue}>
+          {/* <input className="search-input" onChange={this.handleInput} />  */}
+          <Input 
+            onChange={this.handleInput} 
+            className="search-input" 
+            name="input"
+            inputLabel="Pokémon"
+          />
+          {/* <button className="search-btn">Search</button>  */}
+          <Button type="submit" className="search-btn" name="Search"/>
         </form>
         <PokemonCard 
           id={this.state.id}
