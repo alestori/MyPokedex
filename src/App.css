@@ -7,7 +7,7 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(60deg, red, orange);
   display: flex;
   height: 10vh;
   flex-direction: column;
@@ -17,8 +17,25 @@ body {
   color: white;
 }
 
+@font-face {
+  font-family: PokeSolid;
+  src: url('./fonts/Pokemon\ Solid.ttf');
+}
+
+.page-title {
+  font-family: PokeSolid;
+  font-weight: 200;
+  color: yellow;
+  text-shadow: 0 4px 0 blue;
+}
+
 .search-form {
   margin: 50px;
+}
+
+@font-face {
+  font-family: PokeGBA;
+  src: url('./fonts/PokemonGb-RAeo.ttf');
 }
 
 .poke-card {
@@ -35,10 +52,11 @@ body {
 .poke-name {
   text-transform: capitalize;
   font-size: calc(10px + 4vmin);
-  margin: 10px;
+  margin: 20px;
 }
 
 .poke-info {
+  font-family: PokeGBA;
   display: flex;
   height: 100%;
   flex-direction: column;
