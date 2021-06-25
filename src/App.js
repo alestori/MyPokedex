@@ -3,8 +3,9 @@ import React, { Component } from 'react'
 import Header from './components/Header';
 import pokeFetch from './pokeFetch';
 import PokemonCard from './components/PokemonCard';
-import Button from './components/Button';
-import Input from './components/Input';
+// import Button from './components/Button';
+// import Input from './components/Input';
+import Form from './components/Form';
 import './App.css';
 
 export class App extends Component {
@@ -48,17 +49,22 @@ export class App extends Component {
     return (
       <div className="App">
         <Header />
-        <form className="search-form" onSubmit={this.logValue}>
+        <Form 
+          data-testid="form-test"
+          className="search-form"
+          onSubmit={this.logValue}
+        />
+        {/* <form className="search-form" onSubmit={this.logValue}> */}
           {/* <input className="search-input" onChange={this.handleInput} />  */}
-          <Input 
+          {/* <Input 
             onChange={this.handleInput} 
             className="search-input" 
             name="input"
             inputLabel="Pokémon"
-          />
+          /> */}
           {/* <button className="search-btn">Search</button>  */}
-          <Button type="submit" className="search-btn" name="Search"/>
-        </form>
+          {/* <Button type="submit" className="search-btn" name="Search"/> */}
+        {/* </form> */}
         <PokemonCard 
           id={this.state.id}
           className={`${this.state.name}`} 
