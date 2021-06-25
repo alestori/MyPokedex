@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import pokeFetcher from './PokeFetch';
+import pokeFetch from './PokeFetch';
 
 export class SearchForm extends Component {
   state = {
-    name: '',
+    name: 'ditto',
   }
 
   handleInput = (evt) => {
     this.setState({
      name: evt.target.value 
     });
-    console.log(this.state.name);
   }
 
-  logValue = (event) => {
+  logValue = async (event) => {
     event.preventDefault();
-    console.log(pokeFetcher(this.state.name));
+    const {name, weight, sprites} = await pokeFetch(this.state.name);
+    console.log(name);
+    console.log(weight);
+    console.log(sprites.front_default);
   }
 
   render() {
     return (
       <form>
-        <input name="search-input" className="search-input" onChange={this.handleInput} />
-        <button text="Buscar" className="search-btn" onClick={this.logValue}>Buscar</button>
+        <input className="search-input" onChange={this.handleInput} />
+        <button className="search-btn" onClick={this.logValue}>Buscar</button>
       </form>
     )
   }
