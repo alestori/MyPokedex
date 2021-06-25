@@ -7,16 +7,20 @@ export class PokemonCard extends Component {
     const typeObj = Object.values(types);
     return (
       <div className={`${className} poke-card`}>
+        <h2 className="poke-name">{name}</h2>
         <div className="poke-info">
-          <h2 className="poke-name">{name}</h2>
-          <div className="poke-sub-info">
-            <label>Type:</label>
+          <div>
+            <div className="poke-sub-info">
+              <label>Type:</label>
               {typeObj.map((type, i) => <Type key={i} type={type.type.name} />)}
-            <label>Weight:</label>
+            </div>
+            <div className="poke-sub-info">
+              <label>Weight:</label>
               <p className="poke-weight">{weight}lb</p>
+            </div>
           </div>
+          <img className="poke-sprite" src={sprites} alt="sprite" />
         </div>
-        <img className="poke-sprite" src={sprites} alt="sprite" />
       </div>
     )
   }

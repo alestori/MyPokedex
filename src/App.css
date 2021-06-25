@@ -43,10 +43,13 @@ body {
   margin: auto;
   display: flex;
   justify-content: space-around;
+  padding: 10px;
   align-items: center;
   border-radius: 5px;
-  width: 45%;
-  height: 30%;
+  width: 500px;
+  height: 300px;
+  font-family: PokeGBA;
+  flex-flow: column;
 }
 
 .poke-name {
@@ -56,15 +59,19 @@ body {
 }
 
 .poke-info {
-  font-family: PokeGBA;
   display: flex;
   height: 100%;
-  flex-direction: column;
+  /* flex-direction: row; */
   align-items: space-between;
 }
 
 .poke-sub-info {
+  width: 200px;
   text-align: center;
+  border: 1px solid black;
+  padding: 10px 20px;
+  margin: auto;
+  border-radius: 5px;
 }
 
 label {
@@ -72,5 +79,6 @@ label {
 }
 
 .poke-sprite {
-  width: 50%;
+  width: 200px;
+  /* flex-grow: 1; */
 }
