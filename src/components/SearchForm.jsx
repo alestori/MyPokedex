@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import SearchInput from './SearchInput';
-import Button from './Button';
 // import pokeFetcher from './PokeFetch';
 
 export class SearchForm extends Component {
@@ -8,20 +6,22 @@ export class SearchForm extends Component {
     name: '',
   }
 
-  handleInput = (evt) => this.setState({ name: evt.target.value });
+  handleInput = (evt) => {
+    this.setState({
+     name: evt.target.value 
+    });
+    console.log(this.state.name);
+  }
 
-  pokeFetcher = async (poke) => {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`);
-    const pokemon = await response.json();
-    console.log(pokemon);
+  logValue = () => {
+    console.log(this.state.name);
   }
 
   render() {
-    const {name} = this.state;
     return (
       <form>
-        <SearchInput name="search-input" className="search-input" />
-        <Button text="Buscar" className="search-btn" onClick={this.pokeFetcher(name)}/>
+        <input name="search-input" className="search-input" onChange={this.handleInput} />
+        <button text="Buscar" className="search-btn" onClick={this.logValue}>Buscar</button>
       </form>
     )
   }
