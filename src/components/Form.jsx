@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Input from './Input';
 import Button from './Button';
-// import pokeFetch from '../pokeFetch';
+import pokeFetch from '../pokeFetch';
 
 export class Form extends Component {
   state = {
@@ -21,33 +21,38 @@ export class Form extends Component {
     }
   }
 
-  handleInput = (evt) => {
+  handleInput = (e) => {
     this.setState({
-      name: evt.target.value
+      name: e.target.value
     });
   }
 
-  // logValue = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const pokemon = await pokeFetch(this.state.name);
-  //     const {id, name, weight, sprites, species, types } = pokemon;
-  //     const { front_default } = sprites;
-  //     this.setState({id, name, weight, front_default, species, types})
-  //   } catch (e) {
-  //     console.log(e);
-  //     return;
-  //   }
-  // }
+  logValue = async () => {
+    try {
+      const pokemon = await pokeFetch(this.state.name);
+      const {id, name, weight, sprites, species, types } = pokemon;
+      const { front_default } = sprites;
+      this.setState({id, name, weight, front_default, species, types})
+    } catch (e) {
+      console.log(e);
+      return;
+    }
+  }
+
+  onTrigger = async (e) => {
+    e.preventDefault();
+    await this.logValue();
+    this.props.parentCallback(this.state);
+  }
 
   render() {
-    const { onSubmit, className, testid} = this.props;
+    const { className, testid } = this.props;
     return (
-      <form onSubmit={onSubmit} className={className} data-testid={testid}>
+      <form onSubmit={this.onTrigger} className={className} data-testid={testid}>
        <Input 
             onChange={this.handleInput} 
             className="search-input" 
-            name="input"
+            name="inputform"
             inputLabel="Pokémon" />
         <Button type="submit" className="search-btn" name="Search"/>
       </form>

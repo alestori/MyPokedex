@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
 import Header from './components/Header';
-import pokeFetch from './pokeFetch';
 import PokemonCard from './components/PokemonCard';
-// import Button from './components/Button';
-// import Input from './components/Input';
 import Form from './components/Form';
 import './App.css';
 
@@ -26,23 +22,15 @@ export class App extends Component {
     }
   }
 
-  handleInput = (evt) => {
+  handleCallback = (data) => {
     this.setState({
-      name: evt.target.value
-    });
-  }
-
-  logValue = async (event) => {
-    event.preventDefault();
-    try {
-      const pokemon = await pokeFetch(this.state.name);
-      const {id, name, weight, sprites, species, types } = pokemon;
-      const { front_default } = sprites;
-      this.setState({id, name, weight, front_default, species, types})
-    } catch (e) {
-      console.log(e);
-      return;
-    }
+      id: data.id,
+      name: data.name,
+      weight: data.weight,
+      front_default: data.front_default,
+      species: data.species,
+      types: data.types,
+    })
   }
   
   render() {
@@ -52,19 +40,7 @@ export class App extends Component {
         <Form 
           data-testid="form-test"
           className="search-form"
-          onSubmit={this.logValue}
-        />
-        {/* <form className="search-form" onSubmit={this.logValue}> */}
-          {/* <input className="search-input" onChange={this.handleInput} />  */}
-          {/* <Input 
-            onChange={this.handleInput} 
-            className="search-input" 
-            name="input"
-            inputLabel="Pokémon"
-          /> */}
-          {/* <button className="search-btn">Search</button>  */}
-          {/* <Button type="submit" className="search-btn" name="Search"/> */}
-        {/* </form> */}
+          parentCallback={this.handleCallback} />
         <PokemonCard 
           id={this.state.id}
           className={`${this.state.name}`} 
