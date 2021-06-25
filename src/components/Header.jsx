@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 export class Header extends Component {
   render() {
     return (
-      <header>
-        <h1>Pokédex</h1>
+      <header className="App-header">
+        <h1 className="page-title">Pokédex</h1>
         {/* <SearchForm /> */}
       </header>
     )

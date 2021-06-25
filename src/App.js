@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import Header from './components/Header';
-import pokeFetch from './components/pokeFetch';
+import pokeFetch from './pokeFetch';
 import PokemonCard from './components/PokemonCard';
+import './App.css';
 
 export class App extends Component {
   state = {
@@ -13,6 +14,11 @@ export class App extends Component {
     species: {
       name: 'ditto',
     },
+    types: {
+      type: {
+        name: 'normal',
+      },
+    }
   }
 
   handleInput = (evt) => {
@@ -24,9 +30,10 @@ export class App extends Component {
   logValue = async (event) => {
     event.preventDefault();
     const pokemon = await pokeFetch(this.state.name);
-    const {id, name, weight, sprites, species } = pokemon;
+    const {id, name, weight, sprites, species, types } = pokemon;
     const { front_default } = sprites;
-    this.setState({id, name, weight, front_default, species})
+    this.setState({id, name, weight, front_default, species, types})
+    console.log(this.state);
   }
   
   render() {

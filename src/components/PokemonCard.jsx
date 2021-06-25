@@ -5,8 +5,10 @@ export class PokemonCard extends Component {
     const {name, weight, sprites, className } = this.props
     return (
       <div className={`${className} poke-card`}>
-        <h2 className="poke-name">{name}</h2>
-        <p className="poke-weight">{weight}</p>
+        <div>
+          <h2 className="poke-name">{name}</h2>
+          <p className="poke-weight">Weight: {weight}</p>
+        </div>
         <img className="poke-sprite" src={sprites} alt="sprite" />
       </div>
     )
