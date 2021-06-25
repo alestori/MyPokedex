@@ -46,9 +46,9 @@ export class Form extends Component {
   }
 
   render() {
-    const { className, testid } = this.props;
+    const { className } = this.props;
     return (
-      <form onSubmit={this.onTrigger} className={className} data-testid={testid}>
+      <form onSubmit={this.onTrigger} className={className} data-testid={this.props['data-testid']}>
        <Input 
             onChange={this.handleInput} 
             className="search-input" 
