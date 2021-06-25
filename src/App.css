@@ -23,16 +23,18 @@ body {
 
 .poke-card {
   border: 1px solid black;
-  margin: 0 30%;
+  margin: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-radius: 5px;
+  width: 45%;
+  height: 30%;
 }
 
 .poke-name {
   text-transform: capitalize;
-  font-size: calc(10px + 5vmin);
+  font-size: calc(10px + 4vmin);
   margin: 10px;
 }
 
@@ -45,15 +47,10 @@ body {
 
 .poke-sub-info {
   text-align: center;
-
 }
 
 label {
   font-weight: 600;
-}
-
-.poke-weight {
-
 }
 
 .poke-sprite {

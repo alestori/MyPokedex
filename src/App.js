@@ -46,7 +46,7 @@ export class App extends Component {
           <button className="search-btn" onClick={this.logValue}>Search</button> 
         </form>
         <PokemonCard 
-          key={this.state.id}
+          id={this.state.id}
           className={`${this.state.name}`} 
           name={this.state.species.name} 
           weight={this.state.weight} 
