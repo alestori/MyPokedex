@@ -31,13 +31,18 @@ export class App extends Component {
   
   render() {
     return (
-      <div>
+      <div className="App">
         <Header />
-        <form>
+        <form className="search-form">
           <input className="search-input" onChange={this.handleInput} /> 
           <button className="search-btn" onClick={this.logValue}>Buscar</button> 
         </form>
-        <PokemonCard name={this.state.species.name} weight={this.state.weight} sprites={this.state.front_default} />
+        <PokemonCard 
+          className={`${this.state.name}`} 
+          name={this.state.species.name} 
+          weight={this.state.weight} 
+          sprites={this.state.front_default} 
+        />
       </div> 
     )
   }
