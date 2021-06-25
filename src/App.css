@@ -17,16 +17,39 @@ body {
   color: white;
 }
 
+.search-form {
+  margin: 50px;
+}
+
 .poke-card {
   border: 1px solid black;
-  margin: 0 20%;
+  margin: 0 30%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  border-radius: 5px;
 }
 
 .poke-name {
   text-transform: capitalize;
+  font-size: calc(10px + 5vmin);
+  margin: 10px;
+}
+
+.poke-info {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: space-between;
+}
+
+.poke-sub-info {
+  text-align: center;
+
+}
+
+label {
+  font-weight: 600;
 }
 
 .poke-weight {
@@ -34,5 +57,5 @@ body {
 }
 
 .poke-sprite {
-  width: 200px;
+  width: 50%;
 }

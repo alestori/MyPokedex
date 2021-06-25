@@ -15,8 +15,10 @@ export class App extends Component {
       name: 'ditto',
     },
     types: {
-      type: {
-        name: 'normal',
+      0: {
+        type: {
+          name: 'normal',
+      }
       },
     }
   }
@@ -33,7 +35,6 @@ export class App extends Component {
     const {id, name, weight, sprites, species, types } = pokemon;
     const { front_default } = sprites;
     this.setState({id, name, weight, front_default, species, types})
-    console.log(this.state);
   }
   
   render() {
@@ -42,13 +43,15 @@ export class App extends Component {
         <Header />
         <form className="search-form">
           <input className="search-input" onChange={this.handleInput} /> 
-          <button className="search-btn" onClick={this.logValue}>Buscar</button> 
+          <button className="search-btn" onClick={this.logValue}>Search</button> 
         </form>
         <PokemonCard 
+          key={this.state.id}
           className={`${this.state.name}`} 
           name={this.state.species.name} 
           weight={this.state.weight} 
           sprites={this.state.front_default} 
+          types={this.state.types}
         />
       </div> 
     )
