@@ -6,7 +6,6 @@ export class Header extends Component {
     return (
       <header className="App-header">
         <h1 className="page-title">Pokédex</h1>
-        {/* <SearchForm /> */}
       </header>
     )
   }
