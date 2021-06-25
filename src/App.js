@@ -6,9 +6,13 @@ import PokemonCard from './components/PokemonCard';
 
 export class App extends Component {
   state = {
+    id: 132,
     name: 'ditto',
     weight: 40,
     front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png',
+    species: {
+      name: 'ditto',
+    },
   }
 
   handleInput = (evt) => {
@@ -20,14 +24,12 @@ export class App extends Component {
   logValue = async (event) => {
     event.preventDefault();
     const pokemon = await pokeFetch(this.state.name);
-    const {name, weight, sprites } = pokemon;
+    const {id, name, weight, sprites, species } = pokemon;
     const { front_default } = sprites;
-    this.setState({name, weight, front_default})
-    console.log(this.state);
+    this.setState({id, name, weight, front_default, species})
   }
   
   render() {
-
     return (
       <div>
         <Header />
@@ -35,7 +37,7 @@ export class App extends Component {
           <input className="search-input" onChange={this.handleInput} /> 
           <button className="search-btn" onClick={this.logValue}>Buscar</button> 
         </form>
-        <PokemonCard name={this.state.name} weight={this.state.weight} sprites={this.state.front_default} />
+        <PokemonCard name={this.state.species.name} weight={this.state.weight} sprites={this.state.front_default} />
       </div> 
     )
   }
