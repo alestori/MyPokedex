@@ -30,7 +30,12 @@ body {
 }
 
 .search-form {
-  margin: 50px;
+  margin: 50px auto;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @font-face {
@@ -74,11 +79,13 @@ body {
   border-radius: 5px;
 }
 
-label {
+.input-label {
+  width: 50%;
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
 }
 
 .poke-sprite {
   width: 200px;
-  /* flex-grow: 1; */
 }
