@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import pokeFetch from './PokeFetch';
+import pokeFetch from './pokeFetch';
 
 export class SearchForm extends Component {
   state = {
