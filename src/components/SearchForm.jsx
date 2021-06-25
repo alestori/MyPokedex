@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import pokeFetcher from './PokeFetch';
+import pokeFetcher from './PokeFetch';
 
 export class SearchForm extends Component {
   state = {
@@ -13,8 +13,9 @@ export class SearchForm extends Component {
     console.log(this.state.name);
   }
 
-  logValue = () => {
-    console.log(this.state.name);
+  logValue = (event) => {
+    event.preventDefault();
+    console.log(pokeFetcher(this.state.name));
   }
 
   render() {
