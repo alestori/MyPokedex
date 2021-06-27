@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import pokeFetch from './pokeFetch';
+// import Form from './components/Form';
+// import Button from './components/Button';
 
 test('renders header correctly', () => {
   render(<App />);
@@ -18,5 +20,11 @@ test('should render pokemon card', () => {
 
 test('pokeFetch is a function', () => {
   expect(typeof pokeFetch).toBe('function');
+});
+
+test('form renderiza', () => {
+  render(<App />);
+  const form = screen.getByTestId('form-test');
+  expect(form).toBeInTheDocument();
 });
 
