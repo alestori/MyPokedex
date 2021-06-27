@@ -16,14 +16,15 @@ export class Form extends Component {
       0: {
         type: {
           name: 'normal',
-      }
+        }
       },
     }
   }
 
   handleInput = (e) => {
+    const value = e.target.value;
     this.setState({
-      name: e.target.value
+      name: value.toLowerCase(),
     });
   }
 

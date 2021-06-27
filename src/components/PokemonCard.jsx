@@ -11,11 +11,11 @@ export class PokemonCard extends Component {
         <div className="poke-info">
           <div>
             <div className="poke-sub-info">
-              <label>Type:</label>
+              <label className="info-label">Type:</label>
               {typeObj.map((type, i) => <Type key={i} type={type.type.name} />)}
             </div>
             <div className="poke-sub-info">
-              <label>Weight:</label>
+              <label className="info-label">Weight:</label>
               <p className="poke-weight">{weight}lb</p>
             </div>
           </div>

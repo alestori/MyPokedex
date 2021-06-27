@@ -86,6 +86,10 @@ body {
   flex-direction: column;
 }
 
+.info-label {
+  font-weight: 600;
+}
+
 .search-input {
   text-align: center;
   margin: 10px auto;
