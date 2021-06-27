@@ -4,8 +4,7 @@ export const pokeFetch = async (poke = "ditto") => {
     const pokemon = await response.json();
     return await pokemon;
   } catch (e) {
-    console.log(e);
-    return await pokeFetch();
+    return;
   }
 }
 
