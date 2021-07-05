@@ -5,6 +5,10 @@ import pokeFetch from '../pokeFetch';
 
 export class Form extends Component {
   state = {
+    error: {
+      error: [],
+      errormsg: '',
+    },
     id: 132,
     name: 'ditto',
     weight: 40,
@@ -16,14 +20,15 @@ export class Form extends Component {
       0: {
         type: {
           name: 'normal',
-      }
+        }
       },
     }
   }
 
   handleInput = (e) => {
+    const value = e.target.value;
     this.setState({
-      name: e.target.value
+      name: value.toLowerCase(),
     });
   }
 
@@ -32,10 +37,22 @@ export class Form extends Component {
       const pokemon = await pokeFetch(this.state.name);
       const {id, name, weight, sprites, species, types } = pokemon;
       const { front_default } = sprites;
-      this.setState({id, name, weight, front_default, species, types})
+      this.setState({id, name, weight, front_default, species, types, 
+        error: { 
+          error: [],
+          errormsg: "",
+        }
+      });
     } catch (e) {
-      console.log(e);
-      return;
+      const pokemon = await pokeFetch('ditto');
+      const {id, name, weight, species, types, sprites} = pokemon;
+      const {front_default } = sprites;
+      this.setState({id, name, weight, front_default, species, types,
+        error: {
+          error: [].push(e),
+          errormsg: "Couldn't find that Pokémon. But here's one that could be it...maybe?"
+        }
+      })
     }
   }
 
@@ -50,12 +67,13 @@ export class Form extends Component {
     return (
       <form onSubmit={this.onTrigger} className={className} data-testid={this.props['data-testid']}>
        <Input
-            labelClassName="input-label"
-            onChange={this.handleInput} 
-            className="search-input" 
-            name="inputform"
-            inputLabel="Pokémon" />
+          labelClassName="input-label"
+          onChange={this.handleInput} 
+          className="search-input" 
+          name="inputform"
+          inputLabel="Pokémon" />
         <Button type="submit" className="search-btn" name="Search"/>
+        { this.state.error.errormsg && <p className="error">{ this.state.error.errormsg }</p> }
       </form>
     )
   }

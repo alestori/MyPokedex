@@ -86,6 +86,17 @@ body {
   flex-direction: column;
 }
 
+.info-label {
+  font-weight: 600;
+}
+
+.error {
+  position: absolute;
+  top: 30%;
+  color: red;
+  font-style: italic;
+}
+
 .search-input {
   text-align: center;
   margin: 10px auto;
