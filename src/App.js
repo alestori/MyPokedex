@@ -31,14 +31,15 @@ export class App extends Component {
   }
 
   handleCallback = (data) => {
-    this.setState({
-      id: data.id,
-      name: data.name,
-      weight: data.weight,
-      front_default: data.front_default,
-      species: data.species,
-      types: data.types,
-    })
+    this.setState(
+      {loading: true},
+      async () => {
+        const pokemon = await pokeFetch(data.name);
+        const {id, name, weight, sprites, species, types } = pokemon;
+        const { front_default } = sprites;
+        this.setState({id, name, weight, front_default, species, types, loading: false});
+      }
+      )
   }
   
   render() {

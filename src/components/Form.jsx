@@ -41,7 +41,6 @@ export class Form extends Component {
 
   onTrigger = (e) => {
     e.preventDefault();
-    // this.logValue();
     this.props.parentCallback(this.state);
   } 
 
