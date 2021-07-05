@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Input from './Input';
 import Button from './Button';
-import pokeFetch from '../pokeFetch';
 
 export class Form extends Component {
   state = {

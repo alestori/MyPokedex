@@ -43,7 +43,7 @@ body {
   src: url('./fonts/PokemonGb-RAeo.ttf');
 }
 
-.poke-card {
+.poke-card, .loading {
   border: 1px solid black;
   margin: auto;
   display: flex;
@@ -55,6 +55,10 @@ body {
   height: 300px;
   font-family: PokeGBA;
   flex-flow: column;
+}
+
+.loading {
+  
 }
 
 .poke-name {

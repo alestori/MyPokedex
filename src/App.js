@@ -43,7 +43,7 @@ export class App extends Component {
   }
   
   render() {
-    const loadingSpan = <span>Loading...</span>
+    const loadingSpan = <span className="loading">Loading...</span>
     const {loading} = this.state;
     return (
       <div className="App">
