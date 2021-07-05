@@ -2,6 +2,23 @@ import React, { Component } from 'react';
 import Type from './Type';
 
 export class PokemonCard extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   const {name, weight, sprites, className, types } = props;
+  //   const typeObj = Object.values(types);
+  //   this.state = {
+  //     name, weight, sprites, className, typeObj
+  //   }
+  // }
+
+  componentDidMount() {
+    console.log('mount card');
+  }
+
+  componentDidUpdate() {
+    console.log('update card');
+  }
+
   render() {
     const {name, weight, sprites, className, types } = this.props;
     const typeObj = Object.values(types);
@@ -12,7 +29,7 @@ export class PokemonCard extends Component {
           <div>
             <div className="poke-sub-info">
               <label>Type:</label>
-              {typeObj.map((type, i) => <Type key={i} type={type.type.name} />)}
+              {typeObj.map(({type}, i) => <Type key={i} type={type.name} />)}
             </div>
             <div className="poke-sub-info">
               <label>Weight:</label>

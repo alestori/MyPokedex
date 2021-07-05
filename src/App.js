@@ -3,23 +3,31 @@ import Header from './components/Header';
 import PokemonCard from './components/PokemonCard';
 import Form from './components/Form';
 import './App.css';
+import pokeFetch from './pokeFetch';
 
 export class App extends Component {
-  state = {
-    id: 132,
-    name: 'ditto',
-    weight: 40,
-    front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png',
-    species: {
-      name: 'ditto',
-    },
-    types: {
-      0: {
-        type: {
-          name: 'normal',
-      }
-      },
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
     }
+  }
+
+  componentDidUpdate() {
+    console.log('app update')
+  }
+
+  componentDidMount() {
+    console.log('app mount');
+    this.setState(
+      { loading: true },
+      async () => {
+        const pokemon = await pokeFetch(`ditto`);
+        const {id, name, weight, sprites, species, types } = pokemon;
+        const { front_default } = sprites;
+        this.setState({id, name, weight, front_default, species, types, loading: false})  
+      }
+    )
   }
 
   handleCallback = (data) => {
@@ -34,6 +42,8 @@ export class App extends Component {
   }
   
   render() {
+    const loadingSpan = <span>Loading...</span>
+    const {loading} = this.state;
     return (
       <div className="App">
         <Header />
@@ -41,6 +51,7 @@ export class App extends Component {
           data-testid="form-test"
           className="search-form"
           parentCallback={this.handleCallback} />
+        {loading ? loadingSpan : 
         <PokemonCard 
           id={this.state.id}
           className={`${this.state.name}`} 
@@ -48,7 +59,7 @@ export class App extends Component {
           weight={this.state.weight} 
           sprites={this.state.front_default} 
           types={this.state.types}
-        />
+        />}
       </div> 
     )
   }

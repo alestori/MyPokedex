@@ -27,23 +27,23 @@ export class Form extends Component {
     });
   }
 
-  logValue = async () => {
-    try {
-      const pokemon = await pokeFetch(this.state.name);
-      const {id, name, weight, sprites, species, types } = pokemon;
-      const { front_default } = sprites;
-      this.setState({id, name, weight, front_default, species, types})
-    } catch (e) {
-      console.log(e);
-      return;
-    }
-  }
+  // logValue = async () => {
+  //   try {
+  //     const pokemon = await pokeFetch(this.state.name);
+  //     const {id, name, weight, sprites, species, types } = pokemon;
+  //     const { front_default } = sprites;
+  //     this.setState({id, name, weight, front_default, species, types})
+  //   } catch (e) {
+  //     console.log(e);
+  //     return;
+  //   }
+  // }
 
-  onTrigger = async (e) => {
+  onTrigger = (e) => {
     e.preventDefault();
-    await this.logValue();
+    // this.logValue();
     this.props.parentCallback(this.state);
-  }
+  } 
 
   render() {
     const { className } = this.props;
