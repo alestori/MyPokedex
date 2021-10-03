@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/pokedex/static/css/main.5506d728.chunk.css",
+    "main.js": "/pokedex/static/js/main.f27c4a6c.chunk.js",
+    "main.js.map": "/pokedex/static/js/main.f27c4a6c.chunk.js.map",
+    "runtime-main.js": "/pokedex/static/js/runtime-main.766c8c7f.js",
+    "runtime-main.js.map": "/pokedex/static/js/runtime-main.766c8c7f.js.map",
+    "static/js/2.e162ff96.chunk.js": "/pokedex/static/js/2.e162ff96.chunk.js",
+    "static/js/2.e162ff96.chunk.js.map": "/pokedex/static/js/2.e162ff96.chunk.js.map",
+    "static/js/3.f2e05678.chunk.js": "/pokedex/static/js/3.f2e05678.chunk.js",
+    "static/js/3.f2e05678.chunk.js.map": "/pokedex/static/js/3.f2e05678.chunk.js.map",
+    "index.html": "/pokedex/index.html",
+    "static/css/main.5506d728.chunk.css.map": "/pokedex/static/css/main.5506d728.chunk.css.map",
+    "static/js/2.e162ff96.chunk.js.LICENSE.txt": "/pokedex/static/js/2.e162ff96.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/pokedex/static/media/PokemonGb-RAeo.6211ee48.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.766c8c7f.js",
+    "static/js/2.e162ff96.chunk.js",
+    "static/css/main.5506d728.chunk.css",
+    "static/js/main.f27c4a6c.chunk.js"
+  ]
+}
